@@ -1,6 +1,9 @@
-require("@nomicfoundation/hardhat-toolbox");
-require("hardhat-deploy");
 require("dotenv").config();
+require("@nomiclabs/hardhat-etherscan");
+require("@nomiclabs/hardhat-waffle");
+require("hardhat-gas-reporter");
+require("solidity-coverage");
+require("hardhat-deploy");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 const RINKBY_RPC_URL = process.env.RINKBY_RPC_URL || "https://eth-rinkeby";
@@ -17,7 +20,7 @@ module.exports = {
       url: RINKBY_RPC_URL,
       accounts: [PRIVATE_KEY],
       chainId: 4,
-      blockConfirmations:6,
+      blockConfirmations: 6,
     },
     localhost: {
       url: "http://127.0.0.1:8545/",
