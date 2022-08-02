@@ -5,6 +5,8 @@ pragma solidity ^0.8.0;
 
 import "./PriceConverter.sol";
 
+error FundMe_NotOwner();
+
 /** @title A contract or crowd funding
  * @author Ritesh gurjar
  * @notice This contract is to demo a sample funding contract
@@ -24,7 +26,7 @@ contract FundMe {
     AggregatorV3Interface public priceFeed;
 
     modifier onlyOwner() {
-        require(msg.sender == i_owner, "Not a Owner");
+        if (msg.sender != i_owner) revert FundMe_NotOwner();
         _;
     }
 

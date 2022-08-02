@@ -1,5 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("hardhat-deploy");
+require("hardhat-gas-reporter");
+
+require("solidity-coverage");
 require("dotenv").config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
@@ -17,7 +20,7 @@ module.exports = {
       url: RINKBY_RPC_URL,
       accounts: [PRIVATE_KEY],
       chainId: 4,
-      blockConfirmations:6,
+      blockConfirmations: 6,
     },
     localhost: {
       url: "http://127.0.0.1:8545/",
@@ -29,11 +32,12 @@ module.exports = {
     apiKey: ETHERSCAN_API_KEY,
   },
   gasReporter: {
-    enabled: false,
+    enabled: true,
     outputFile: "gas-report.txt",
     noColors: true,
     currency: "USD",
-    coinmarketcap: COINMARKETCAP_API_KEY,
+    // coinmarketcap: COINMARKETCAP_API_KEY,
+    token: "MATIC",
   },
   namedAccounts: {
     deployer: {
