@@ -109,12 +109,12 @@ describe("FundMe", async function () {
     });
 
     it("Only allows the Owner to  Withdraw", async function () {
-      const accounts = ethers.getSigners();
+      const accounts = await ethers.getSigners();
       const attacker = accounts[1];
       const attackerConnectedContract = await fundMe.connect(attacker);
-      await expect(attackerConnectedContract.withdraw()).to.be.revertedWith(
-        "FundMe__NotOwner"
-      );
+      await expect(
+        attackerConnectedContract.withdraw()
+      ).to.be.revertedWithCustomError(fundMe, "FundMe__NotOwner");
     });
   });
 });

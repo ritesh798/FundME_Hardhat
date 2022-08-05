@@ -1,7 +1,7 @@
 {
-  "name":"hardhat fund me",
-  "author":"Ritesh gurjar",
-  "version":"1.0.0",
+  "name": "hardhat-fund-me",
+  "author": "Ritesh gurjar",
+  "version": "1.0.0",
   "devDependencies": {
     "@chainlink/contracts": "^0.4.1",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
